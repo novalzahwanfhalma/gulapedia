@@ -44,11 +44,19 @@ class _SignInScreenState extends State<SignInScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Welcome back',
+                        'Masuk ke akun anda',
                         style: TextStyle(
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w900,
-                          color: lightColorScheme.primary,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w700,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ),
+                      Text(
+                        'Selamat datang!',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          fontWeight: FontWeight.w600,
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                       ),
                       const SizedBox(
@@ -57,27 +65,36 @@ class _SignInScreenState extends State<SignInScreen> {
                       TextFormField(
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter Email';
+                            return 'Tolong masukkan Email';
                           }
                           return null;
                         },
                         decoration: InputDecoration(
                           label: const Text('Email'),
-                          hintText: 'Enter Email',
+                          labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ),
+                          hintText: 'Masukkan Email',
                           hintStyle: const TextStyle(
-                            color: Colors.black26,
+                            color: Colors.grey,
                           ),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.black12, // Default border color
+                              color: Colors.grey, // Default border color
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.black12, // Default border color
+                              color: Colors.grey, // Default border color
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.teal,
+                            ),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                         ),
                       ),
@@ -89,27 +106,36 @@ class _SignInScreenState extends State<SignInScreen> {
                         obscuringCharacter: '*',
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please enter Password';
+                            return 'Tolong masukkan kata sandi';
                           }
                           return null;
                         },
                         decoration: InputDecoration(
-                          label: const Text('Password'),
-                          hintText: 'Enter Password',
+                          label: const Text('Kata sandi'),
+                          labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 0, 0, 0),
+                          ),
+                          hintText: 'Masukkan kata sandi',
                           hintStyle: const TextStyle(
-                            color: Colors.black26,
+                            color: Colors.grey,
                           ),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.black12, // Default border color
+                              color: Colors.grey,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.black12, // Default border color
+                              color: Colors.grey,
                             ),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: Colors.teal,
+                            ),
+                            borderRadius: BorderRadius.circular(30),
                           ),
                         ),
                       ),
@@ -119,31 +145,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              Checkbox(
-                                value: rememberPassword,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    rememberPassword = value!;
-                                  });
-                                },
-                                activeColor: lightColorScheme.primary,
-                              ),
-                              const Text(
-                                'Remember me',
-                                style: TextStyle(
-                                  color: Colors.black45,
-                                ),
-                              ),
-                            ],
-                          ),
                           GestureDetector(
                             child: Text(
-                              'Forget password?',
+                              'Lupa kata sandi?',
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: lightColorScheme.primary,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF1A998E),
                               ),
                             ),
                           ),
@@ -166,12 +173,17 @@ class _SignInScreenState extends State<SignInScreen> {
                             } else if (!rememberPassword) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                    content: Text(
-                                        'Please agree to the processing of personal data')),
+                                  content: Text(
+                                    'Please agree to the processing of personal data',
+                                  ),
+                                ),
                               );
                             }
                           },
-                          child: const Text('Sign up'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xFF1A998E),
+                          ),
+                          child: const Text('Masuk'),
                         ),
                       ),
                       const SizedBox(
@@ -192,7 +204,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               horizontal: 10,
                             ),
                             child: Text(
-                              'Sign up with',
+                              'Atau masuk dengan',
                               style: TextStyle(
                                 color: Colors.black45,
                               ),
@@ -226,7 +238,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            'Don\'t have an account? ',
+                            'Belum punya akun? ',
                             style: TextStyle(
                               color: Colors.black45,
                             ),
@@ -241,10 +253,10 @@ class _SignInScreenState extends State<SignInScreen> {
                               );
                             },
                             child: Text(
-                              'Sign up',
+                              'Buat akun',
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: lightColorScheme.primary,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xFF1A998E),
                               ),
                             ),
                           ),
