@@ -1,13 +1,17 @@
-import 'package:app/features/dashboard/presentation/widgets/bottom_navbar.dart';
-import 'package:app/features/dashboard/presentation/widgets/data_minggu-ini.dart';
-import 'package:app/features/dashboard/presentation/widgets/menu_carousel.dart';
-import 'package:app/features/dashboard/presentation/widgets/menu_hari-ini.dart';
-import 'package:app/features/dashboard/presentation/widgets/tombol_rincian.dart';
+import 'package:app/features/dashboard/presentation/catatan-harian/widgets/data-minggu-ini.dart';
+import 'package:app/features/dashboard/presentation/catatan-harian/widgets/menu-carousel.dart';
+import 'package:app/features/dashboard/presentation/catatan-harian/widgets/menu-hari-ini.dart';
+import 'package:app/features/dashboard/presentation/catatan-harian/widgets/tombol-rincian.dart';
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+class CatatanHarianScreen extends StatefulWidget {
+  const CatatanHarianScreen({super.key});
 
+  @override
+  State<CatatanHarianScreen> createState() => _CatatanHarianScreenState();
+}
+
+class _CatatanHarianScreenState extends State<CatatanHarianScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +63,6 @@ class DashboardPage extends StatelessWidget {
           MenuHariIni(),
         ],
       ),
-      bottomNavigationBar: BottomNavbar(),
     );
   }
 }
