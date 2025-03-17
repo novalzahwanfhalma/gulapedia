@@ -6,25 +6,30 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => NutritionProvider(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Nutrition Search',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: NutritionSearchPage(),
+      home: const NutritionSearchPage(),
     );
   }
 }
 
 class NutritionSearchPage extends StatefulWidget {
+  const NutritionSearchPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _NutritionSearchPageState createState() => _NutritionSearchPageState();
 }
 
@@ -36,7 +41,7 @@ class _NutritionSearchPageState extends State<NutritionSearchPage> {
     final provider = Provider.of<NutritionProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Cari Nutrisi Makanan')),
+      appBar: AppBar(title: const Text('Cari Nutrisi Makanan')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -45,18 +50,18 @@ class _NutritionSearchPageState extends State<NutritionSearchPage> {
               controller: _controller,
               decoration: InputDecoration(
                 labelText: 'Masukkan nama makanan',
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                   onPressed: () {
                     provider.searchNutrition(_controller.text);
                   },
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             provider.isLoading
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : Expanded(
                     child: ListView.builder(
                       itemCount: provider.nutrients.length,

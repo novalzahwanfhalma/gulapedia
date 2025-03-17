@@ -1,9 +1,8 @@
 import 'package:app/core/theme/colors.dart';
-import 'package:app/core/widgets/floating_container.dart';
 import 'package:flutter/material.dart';
 
-class DataHarian extends StatelessWidget {
-  DataHarian({super.key});
+class CatatanMingguIni extends StatelessWidget {
+  CatatanMingguIni({super.key});
 
   final List<String> labels = ["S", "S", "R", "K", "J", "S", "M"];
   final int selectedIndex = 5; // Index of the selected item
@@ -12,7 +11,10 @@ class DataHarian extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingContainer(
+    return Card(
+      margin: EdgeInsets.all(16.0),
+      color: Colors.white,
+      elevation: 4.0,
       child: Padding(
         padding: EdgeInsets.all(18.0),
         child: Column(

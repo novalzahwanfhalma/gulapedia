@@ -1,8 +1,8 @@
-import 'package:app/features/dashboard/presentation/catatan-harian/widgets/data-minggu-ini.dart';
-import 'package:app/features/dashboard/presentation/catatan-harian/widgets/menu-carousel.dart';
-import 'package:app/features/dashboard/presentation/catatan-harian/widgets/menu-hari-ini.dart';
-import 'package:app/features/dashboard/presentation/catatan-harian/widgets/tombol-rincian.dart';
 import 'package:flutter/material.dart';
+import 'package:app/core/theme/colors.dart';
+import 'package:app/features/home/presentation/widgets/catatan_minggu_ini.dart';
+import 'package:app/features/home/presentation/widgets/carousel_menu.dart';
+import 'package:app/features/home/presentation/widgets/daftar_menu.dart';
 
 class CatatanHarianScreen extends StatefulWidget {
   const CatatanHarianScreen({super.key});
@@ -34,11 +34,24 @@ class _CatatanHarianScreenState extends State<CatatanHarianScreen> {
                   'Minggu 3',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                TombolRincian(onPressed: () {}),
+                TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    splashFactory: NoSplash.splashFactory,
+                    overlayColor: Colors.transparent,
+                  ),
+                  child: Text(
+                    'Rincian',
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: AppColors.primary,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.all(18.0), child: DataHarian()),
+          Padding(padding: EdgeInsets.all(18.0), child: CatatanMingguIni()),
           Padding(
             padding: EdgeInsets.all(18.0),
             child: Row(
@@ -48,11 +61,10 @@ class _CatatanHarianScreenState extends State<CatatanHarianScreen> {
                   'Resep Makanan',
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
-                TombolRincian(onPressed: () {}),
               ],
             ),
           ),
-          Container(margin: EdgeInsets.all(18.0), child: MenuCarousel()),
+          CarouselMenu(),
           Padding(
             padding: EdgeInsets.all(18.0),
             child: Text(
@@ -60,7 +72,7 @@ class _CatatanHarianScreenState extends State<CatatanHarianScreen> {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
-          MenuHariIni(),
+          DaftarMenu(),
         ],
       ),
     );

@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 enum ActivityLevel { low, moderate, high }
 
 void main() {
-  runApp(SugarIntakeCalculator());
+  runApp(const SugarIntakeCalculator());
 }
 
 class SugarIntakeCalculator extends StatelessWidget {
+  const SugarIntakeCalculator({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CalculatorScreen(),
     );
@@ -17,7 +19,10 @@ class SugarIntakeCalculator extends StatelessWidget {
 }
 
 class CalculatorScreen extends StatefulWidget {
+  const CalculatorScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _CalculatorScreenState createState() => _CalculatorScreenState();
 }
 
@@ -34,7 +39,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     int age = int.tryParse(ageController.text) ?? 0;
     double height = double.tryParse(heightController.text) ?? 0.0;
     double weight = double.tryParse(weightController.text) ?? 0.0;
-    
+
     if (age == 0 || height == 0 || weight == 0) {
       setState(() {
         sugarLimit = 0.0;
@@ -76,7 +81,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Kalkulator Konsumsi Gula')),
+      appBar: AppBar(title: const Text('Kalkulator Konsumsi Gula')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -84,17 +89,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             TextField(
               controller: ageController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Umur (tahun)'),
+              decoration: const InputDecoration(labelText: 'Umur (tahun)'),
             ),
             TextField(
               controller: heightController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Tinggi (cm)'),
+              decoration: const InputDecoration(labelText: 'Tinggi (cm)'),
             ),
             TextField(
               controller: weightController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Berat (kg)'),
+              decoration: const InputDecoration(labelText: 'Berat (kg)'),
             ),
             DropdownButton<String>(
               value: gender,
@@ -112,7 +117,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             ),
             DropdownButton<ActivityLevel>(
               value: activityLevel,
-              items: [
+              items: const [
                 DropdownMenuItem(
                     value: ActivityLevel.low, child: Text('Sering di rumah')),
                 DropdownMenuItem(
@@ -127,14 +132,16 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: calculateSugarIntake,
-              child: Text('Hitung Konsumsi Gula'),
+              child: const Text('Hitung Konsumsi Gula'),
             ),
-            SizedBox(height: 20),
-            Text('Batas Konsumsi Gula Maksimal: ${sugarLimit.toStringAsFixed(2)} gram'),
-            Text('Batas Konsumsi Gula Ideal: ${sugarIdeal.toStringAsFixed(2)} gram'),
+            const SizedBox(height: 20),
+            Text(
+                'Batas Konsumsi Gula Maksimal: ${sugarLimit.toStringAsFixed(2)} gram'),
+            Text(
+                'Batas Konsumsi Gula Ideal: ${sugarIdeal.toStringAsFixed(2)} gram'),
           ],
         ),
       ),

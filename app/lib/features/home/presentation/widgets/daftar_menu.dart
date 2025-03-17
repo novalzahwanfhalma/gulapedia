@@ -1,13 +1,15 @@
-import 'package:app/core/theme/colors.dart';
-import 'package:app/core/widgets/floating_container.dart';
 import 'package:flutter/material.dart';
+import 'package:app/core/theme/colors.dart';
 
-class MenuHariIni extends StatelessWidget {
-  const MenuHariIni({super.key});
+class DaftarMenu extends StatelessWidget {
+  const DaftarMenu({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return FloatingContainer(
+    return Card(
+      margin: EdgeInsets.all(16.0),
+      color: Colors.white,
+      elevation: 4.0,
       child: Column(
         children: [
           MealProgressCard(
@@ -107,12 +109,15 @@ class MealProgressCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey[700],
+                    color: const Color.fromRGBO(97, 97, 97, 1),
                   ),
                 ),
                 Text(
                   description,
-                  style: TextStyle(fontSize: 14, color: Colors.grey[600]),
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: const Color.fromRGBO(117, 117, 117, 1),
+                  ),
                 ),
               ],
             ),
