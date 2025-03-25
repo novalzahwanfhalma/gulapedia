@@ -1,62 +1,42 @@
 import 'package:flutter/material.dart';
 
-const lightColorScheme = ColorScheme(
-  brightness: Brightness.light,
-  primary: Color(0xFF416FDF),
-  onPrimary: Color(0xFFFFFFFF),
-  secondary: Color(0xFF6EAEE7),
-  onSecondary: Color(0xFFFFFFFF),
-  error: Color(0xFFBA1A1A),
-  onError: Color(0xFFFFFFFF),
-  background: Color(0xFFFCFDF6),
-  onBackground: Color(0xFF1A1C18),
-  shadow: Color(0xFF000000),
-  outlineVariant: Color(0xFFC2C8BC),
-  surface: Color(0xFFF9FAF3),
-  onSurface: Color(0xFF1A1C18),
-);
-
-const darkColorScheme = ColorScheme(
-  brightness: Brightness.dark,
-  primary: Color(0xFF416FDF),
-  onPrimary: Color(0xFFFFFFFF),
-  secondary: Color(0xFF6EAEE7),
-  onSecondary: Color(0xFFFFFFFF),
-  error: Color(0xFFBA1A1A),
-  onError: Color(0xFFFFFFFF),
-  background: Color(0xFFFCFDF6),
-  onBackground: Color(0xFF1A1C18),
-  shadow: Color(0xFF000000),
-  outlineVariant: Color(0xFFC2C8BC),
-  surface: Color(0xFFF9FAF3),
-  onSurface: Color(0xFF1A1C18),
-);
-
-ThemeData lightMode = ThemeData(
-  useMaterial3: true,
-  brightness: Brightness.light,
-  colorScheme: lightColorScheme,
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(
-        lightColorScheme.primary, // Slightly darker shade for the button
+class AppTheme {
+  static ThemeData lightTheme = ThemeData(
+    primaryColor: const Color(0xFF1A998E), // Warna utama
+    scaffoldBackgroundColor: Colors.white,
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(color: Colors.black, fontSize: 16),
+      bodyMedium: TextStyle(color: Colors.black54, fontSize: 14),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: Colors.white,
+      border: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey),
+        borderRadius: BorderRadius.circular(30),
       ),
-      foregroundColor:
-          MaterialStateProperty.all<Color>(Colors.white), // text color
-      elevation: MaterialStateProperty.all<double>(5.0), // shadow
-      padding: MaterialStateProperty.all<EdgeInsets>(
-          const EdgeInsets.symmetric(horizontal: 20, vertical: 18)),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16), // Adjust as needed
-        ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.grey),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      labelStyle: const TextStyle(color: Colors.black54), // Warna label default
+      floatingLabelStyle: const TextStyle(color: Colors.grey),
+    ),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Colors.teal, // Warna kursor hijau
+      selectionColor: Color.fromARGB(255, 151, 177, 175), // Warna highlight teks
+      selectionHandleColor: Colors.teal, // Warna handle selection
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFF1A998E),
+        foregroundColor: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
       ),
     ),
-  ),
-);
-
-ThemeData darkMode = ThemeData(
-  useMaterial3: true,
-  brightness: Brightness.dark,
-  colorScheme: darkColorScheme,
-);
+  );
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:login_signup/screens/welcome_screen.dart';
-import 'package:login_signup/theme/theme.dart';
+import 'theme/theme.dart'; // Tambahkan import theme
+import 'screens/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,14 +9,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: lightMode,
-      home: const WelcomeScreen(),
+      title: 'Login App',
+      theme: AppTheme.lightTheme, // Gunakan tema yang sudah dibuat di theme.dart
+      home: const SignInScreen(),
     );
   }
 }
