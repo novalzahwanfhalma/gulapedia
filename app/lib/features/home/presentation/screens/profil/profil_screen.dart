@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/core/theme/colors.dart';
+import 'package:app/features/home/presentation/screens/profil/pengaturan_akun_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilScreen extends StatefulWidget {
   const ProfilScreen({super.key});
@@ -55,29 +57,39 @@ class _ProfilScreenState extends State<ProfilScreen> {
                 _buildMenuItem(
                   icon: Icons.settings,
                   label: 'Pengaturan Akun',
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/pengaturan-akun');
+                  },
                 ),
                 _buildMenuItem(
                   icon: Icons.bar_chart,
                   label: 'Laporan',
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/laporan');
+                  },
                 ),
                 _buildMenuItem(
                   icon: Icons.bookmark,
                   label: 'Resep Tersimpan',
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/resep-tersimpan');
+                  },
                 ),
                 _buildMenuItem(
                   icon: Icons.access_alarm,
                   label: 'Pengingat',
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/pengingat');
+                  },
                 ),
                 _buildMenuItem(
                   icon: Icons.logout,
                   label: 'Keluar',
                   iconColor: Colors.red,
                   textColor: Colors.red,
-                  onTap: () {},
+                  onTap: () {
+                    context.push('/keluar');
+                  },
                 ),
               ],
             ),

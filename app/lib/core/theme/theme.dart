@@ -4,8 +4,9 @@ import 'colors.dart';
 class AppTheme {
   static ThemeData mainTheme = ThemeData(
     primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: const Color(0xFFFFFFFF), // ✅ Putih tanpa Colors.white
-    // fontFamily: ,
+    scaffoldBackgroundColor: const Color(
+      0xFFFFFFFF,
+    ),
     textTheme: const TextTheme(
       headlineLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
       headlineMedium: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
@@ -21,8 +22,14 @@ class AppTheme {
       ),
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primary,
-      titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      elevation: 0, //hilangkan bayangan
+      iconTheme: IconThemeData(color: Colors.black),
+      titleTextStyle: TextStyle(
+        color: Color.fromARGB(255, 0, 0, 0),
+        fontSize: 20,
+        fontWeight: FontWeight.w500,
+      ),
     ),
   );
 }

@@ -5,6 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:app/features/home/presentation/screens/catatan_harian/catatan_harian_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/profil_screen.dart';
 import 'package:app/features/home/presentation/screens/resep/resep_screen.dart';
+import 'package:app/features/home/presentation/screens/profil/pengaturan_akun_screen.dart';
+
 
 final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -38,6 +40,15 @@ final router = GoRouter(
             GoRoute(
               path: '/profile', // 🔹 Ubah path ke relatif & perbaiki typo
               builder: (context, state) => const ProfilScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/pengaturan-akun',
+              name: 'pengaturan-akun',
+              builder: (context, state) => const PengaturanAkunScreen(),
             ),
           ],
         ),
