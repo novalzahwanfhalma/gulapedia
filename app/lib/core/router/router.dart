@@ -6,7 +6,7 @@ import 'package:app/features/home/presentation/screens/catatan_harian/catatan_ha
 import 'package:app/features/home/presentation/screens/profil/profil_screen.dart';
 import 'package:app/features/home/presentation/screens/resep/resep_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/pengaturan_akun_screen.dart';
-
+import 'package:app/features/home/presentation/screens/profil/edit_akun_screen.dart';
 
 final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -47,8 +47,18 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: '/pengaturan-akun',
-              name: 'pengaturan-akun',
+              name:
+                  'pengaturan-akun', // 🔹 Ubah path ke relatif & perbaiki typo
               builder: (context, state) => const PengaturanAkunScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/edit-akun',
+              name: 'edit-akun', // 🔹 Ubah path ke relatif & perbaiki typo
+              builder: (context, state) => const EditAkunScreen(),
             ),
           ],
         ),

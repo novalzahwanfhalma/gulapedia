@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:app/core/theme/colors.dart';
+import 'package:app/features/home/presentation/screens/profil/edit_akun_screen.dart';
+import 'package:app/features/home/presentation/screens/profil/edit_sandi_screen.dart';
+import 'package:go_router/go_router.dart';
 
 class PengaturanAkunScreen extends StatefulWidget {
   const PengaturanAkunScreen({super.key});
@@ -25,7 +28,9 @@ class _PengaturanAkunScreenState extends State<PengaturanAkunScreen> {
                   _buildMenuItem(
                     icon: Icons.settings,
                     label: 'Edit Akun',
-                    onTap: () {},
+                    onTap: () {
+                      context.push('/edit-akun');
+                    },
                   ),
                   _buildMenuItem(
                     icon: Icons.key,
