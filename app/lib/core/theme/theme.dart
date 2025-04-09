@@ -4,7 +4,7 @@ import 'colors.dart';
 class AppTheme {
   static ThemeData mainTheme = ThemeData(
     primaryColor: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.background,
+    scaffoldBackgroundColor: const Color(0xFFFFFFFF), // ✅ Putih tanpa Colors.white
     // fontFamily: ,
     textTheme: const TextTheme(
       headlineLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
@@ -20,9 +20,9 @@ class AppTheme {
         foregroundColor: Colors.white,
       ),
     ),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.primary,
-      titleTextStyle: const TextStyle(color: Colors.white, fontSize: 20),
+      titleTextStyle: TextStyle(color: Colors.white, fontSize: 20),
     ),
   );
 }
