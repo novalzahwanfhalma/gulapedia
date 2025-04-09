@@ -7,6 +7,7 @@ import 'package:app/features/home/presentation/screens/profil/profil_screen.dart
 import 'package:app/features/home/presentation/screens/resep/resep_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/pengaturan_akun_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/edit_akun_screen.dart';
+import 'package:app/features/home/presentation/screens/profil/edit_sandi_screen.dart';
 
 final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -59,6 +60,15 @@ final router = GoRouter(
               path: '/edit-akun',
               name: 'edit-akun', // 🔹 Ubah path ke relatif & perbaiki typo
               builder: (context, state) => const EditAkunScreen(),
+            ),
+          ],
+        ),
+        StatefulShellBranch(
+          routes: [
+            GoRoute(
+              path: '/edit-sandi',
+              name: 'edit-sandi', // 🔹 Ubah path ke relatif & perbaiki typo
+              builder: (context, state) => const EditSandiScreen(),
             ),
           ],
         ),

@@ -11,6 +11,7 @@ class EditAkunScreen extends StatefulWidget {
 
 class _EditAkunScreenState extends State<EditAkunScreen> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
   String? _selectedActivity;
@@ -18,9 +19,7 @@ class _EditAkunScreenState extends State<EditAkunScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Akun'),
-      ),
+      appBar: AppBar(title: const Text('Edit Akun')),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(24.0),
@@ -28,13 +27,39 @@ class _EditAkunScreenState extends State<EditAkunScreen> {
             key: _formKey,
             child: Column(
               children: [
+                /// Nama Lengkap
+                TextFormField(
+                  controller: _nameController,
+                  keyboardType: TextInputType.text,
+                  validator:
+                      (value) =>
+                          value!.isEmpty
+                              ? 'Tolong masukkan nama lengkap'
+                              : null,
+                  decoration: InputDecoration(
+                    labelText: 'Nama Lengkap',
+                    hintText: 'Masukkan nama Anda',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 15,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+
                 /// Tinggi Badan
                 TextFormField(
                   controller: _heightController,
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: (value) =>
-                      value!.isEmpty ? 'Tolong masukkan tinggi badan' : null,
+                  validator:
+                      (value) =>
+                          value!.isEmpty
+                              ? 'Tolong masukkan tinggi badan'
+                              : null,
                   decoration: InputDecoration(
                     labelText: 'Tinggi badan (cm)',
                     hintText: 'Masukkan tinggi badan',
@@ -54,8 +79,9 @@ class _EditAkunScreenState extends State<EditAkunScreen> {
                   controller: _weightController,
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: (value) =>
-                      value!.isEmpty ? 'Tolong masukkan berat badan' : null,
+                  validator:
+                      (value) =>
+                          value!.isEmpty ? 'Tolong masukkan berat badan' : null,
                   decoration: InputDecoration(
                     labelText: 'Berat badan (kg)',
                     hintText: 'Masukkan berat badan',
@@ -73,8 +99,9 @@ class _EditAkunScreenState extends State<EditAkunScreen> {
                 /// Dropdown Kegiatan Harian
                 DropdownButtonFormField<String>(
                   value: _selectedActivity,
-                  validator: (value) =>
-                      value == null ? 'Pilih tingkat aktivitas' : null,
+                  validator:
+                      (value) =>
+                          value == null ? 'Pilih tingkat aktivitas' : null,
                   decoration: InputDecoration(
                     labelText: 'Kegiatan Harian',
                     border: OutlineInputBorder(
@@ -117,6 +144,7 @@ class _EditAkunScreenState extends State<EditAkunScreen> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // TODO: Simpan data
+                        print("Nama: ${_nameController.text}");
                         print("Tinggi: ${_heightController.text}");
                         print("Berat: ${_weightController.text}");
                         print("Aktivitas: $_selectedActivity");

@@ -35,7 +35,9 @@ class _PengaturanAkunScreenState extends State<PengaturanAkunScreen> {
                   _buildMenuItem(
                     icon: Icons.key,
                     label: 'Ubah Kata sandi',
-                    onTap: () {},
+                    onTap: () {
+                      context.push('/edit-sandi');
+                    },
                   ),
                 ],
               ),
