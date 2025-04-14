@@ -29,14 +29,14 @@ class _PengaturanAkunScreenState extends State<PengaturanAkunScreen> {
                     icon: Icons.settings,
                     label: 'Edit Akun',
                     onTap: () {
-                      context.push('/edit-akun');
+                      context.push('/profile/edit-akun');
                     },
                   ),
                   _buildMenuItem(
                     icon: Icons.key,
                     label: 'Ubah Kata sandi',
                     onTap: () {
-                      context.push('/edit-sandi');
+                      context.push('/profile/edit-sandi');
                     },
                   ),
                 ],

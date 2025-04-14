@@ -58,28 +58,28 @@ class _ProfilScreenState extends State<ProfilScreen> {
                   icon: Icons.settings,
                   label: 'Pengaturan Akun',
                   onTap: () {
-                    context.push('/pengaturan-akun');
+                    context.push('/profile/pengaturan-akun');
                   },
                 ),
                 _buildMenuItem(
                   icon: Icons.bar_chart,
                   label: 'Laporan',
                   onTap: () {
-                    context.push('/laporan');
+                    context.push('/profile/laporan');
                   },
                 ),
                 _buildMenuItem(
                   icon: Icons.bookmark,
                   label: 'Resep Tersimpan',
                   onTap: () {
-                    context.push('/resep-tersimpan');
+                    context.push('/profile/resep-tersimpan');
                   },
                 ),
                 _buildMenuItem(
                   icon: Icons.access_alarm,
                   label: 'Pengingat',
                   onTap: () {
-                    context.push('/pengingat');
+                    context.push('/profile/pengingat');
                   },
                 ),
                 _buildMenuItem(
