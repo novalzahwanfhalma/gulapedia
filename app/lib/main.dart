@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:app/core/router/router.dart';
+import 'package:app/core/theme/theme.dart';
 
 void main() => runApp(const GulapediaApp());
 
@@ -10,6 +11,7 @@ class GulapediaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: AppTheme.mainTheme,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
       scrollBehavior:
