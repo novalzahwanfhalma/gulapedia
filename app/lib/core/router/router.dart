@@ -1,4 +1,4 @@
-import 'package:app/features/home/presentation/screens/home_screen.dart';
+import 'package:app/features/home/presentation/screens/home_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,15 +12,17 @@ final router = GoRouter(
   navigatorKey: _routeNavigatorKey,
   initialLocation: '/catatan-harian',
   routes: [
+
+    // Home (Bottom Navigation Routes)
     StatefulShellRoute.indexedStack(
       builder:
           (context, state, navigationShell) =>
-              HomeScreen(navigationShell: navigationShell),
+              HomeLayout(navigationShell: navigationShell),
       branches: [
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/catatan-harian', // 🔹 Ubah path ke relatif
+              path: '/catatan-harian', // 
               builder: (context, state) => const CatatanHarianScreen(),
             ),
           ],

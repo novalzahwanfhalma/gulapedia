@@ -5,7 +5,7 @@ class ResepScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(/*appBar: Placeholder(),*/ body: ListView(children: []));
+    return Scaffold(body: ListView(children: []));
   }
 }
 
@@ -22,6 +22,35 @@ class PilihanResep extends StatelessWidget {
         children: [
           Placeholder(),
           Column(children: [Text('Bubur Kecap'), Text('grade A'), Row()]),
+        ],
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  const SearchBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(border: Border.all(width: 1.0)),
+            child: Row(
+              children: [
+                Icon(Icons.search),
+                Text(
+                  'Cari',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color.fromRGBO(147, 147, 147, 1),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
