@@ -1,16 +1,20 @@
 import 'package:app/features/home/presentation/screens/home_layout.dart';
+import 'package:app/features/home/presentation/screens/resep/resep_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
 import 'package:app/features/home/presentation/screens/catatan_harian/catatan_harian_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/profil_screen.dart';
-import 'package:app/features/home/presentation/screens/resep/resep_screen.dart';
+import 'package:app/features/home/presentation/screens/resep/detail_resep_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/pengaturan_akun_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/edit_akun_screen.dart';
 import 'package:app/features/home/presentation/screens/profil/edit_sandi_screen.dart';
 import 'package:app/features/home/presentation/screens/auth/sign_in_screen.dart';
 import 'package:app/features/home/presentation/screens/auth/sign_up_screen.dart';
 import 'package:app/features/home/presentation/screens/auth/kalku_sgr_screen.dart';
+import 'package:app/features/home/presentation/screens/catatan_harian/nutrisi_screen.dart';
+import 'package:app/features/home/presentation/screens/catatan_harian/detail_asupan_screen.dart';
+import 'package:app/features/home/presentation/screens/catatan_harian/detail_menu_screen.dart';
 
 final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
@@ -44,6 +48,20 @@ final router = GoRouter(
             GoRoute(
               path: '/catatan-harian',
               builder: (context, state) => const CatatanHarianScreen(),
+              routes: [
+                GoRoute(
+                  path: 'nutrisi',
+                  builder: (context, state) => const NutrisiScreen(),
+                ),
+                GoRoute(
+                  path: 'detail-asupan',
+                  builder: (context, state) => const DetailAsupanScreen(),
+                ),
+                GoRoute(
+                  path: 'detail-menu',
+                  builder: (context, state) => const DetailMenuScreen(),
+                ),
+              ],
             ),
           ],
         ),
@@ -53,6 +71,16 @@ final router = GoRouter(
             GoRoute(
               path: '/resep',
               builder: (context, state) => const ResepScreen(),
+              routes: [
+                GoRoute(
+                  path: 'resep',
+                  builder: (context, state) => const ResepScreen(),
+                ),
+                GoRoute(
+                  path: 'detail-resep',
+                  builder: (context, state) => const DetailResepScreen(),
+                ),
+              ],
             ),
           ],
         ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:app/core/theme/colors.dart';
+import 'package:go_router/go_router.dart';
 
 class ResepScreen extends StatelessWidget {
   const ResepScreen({super.key});
@@ -9,8 +11,8 @@ class ResepScreen extends StatelessWidget {
   }
 }
 
-class PilihanResep extends StatelessWidget {
-  const PilihanResep({super.key});
+class ResepScreenState extends StatelessWidget {
+  const ResepScreenState({super.key});
 
   @override
   Widget build(BuildContext context) {

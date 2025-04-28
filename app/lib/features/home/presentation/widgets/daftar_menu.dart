@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app/core/theme/colors.dart';
+import 'package:go_router/go_router.dart';
+import 'package:app/features/home/presentation/screens/catatan_harian/nutrisi_screen.dart';
 
 class DaftarMenu extends StatelessWidget {
   const DaftarMenu({super.key});
@@ -18,7 +20,9 @@ class DaftarMenu extends StatelessWidget {
             targetValue: 6,
             description: 'pisang, ayam goreng',
             image: 'assets/images/noto_bread.png',
-            onAdd: () {},
+            onAdd: () {
+              context.push('/catatan-harian/detail-asupan');
+            },
           ),
           Divider(),
           MealProgressCard(

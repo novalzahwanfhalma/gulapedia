@@ -1,0 +1,26 @@
+description: test 1.
+---
+- expectVisible: 'Masuk ke akun anda'
+- wait:
+    seconds: 1
+- pressOn: 'Email'
+- writeText: 'test@gmail.com'
+- pressOn: 'Kata Sandi'
+- writeText: '123'
+- pressOn: 'Masuk'
+- expectVisible: 'Target kontrol gula darah'
+- wait:
+    seconds: 1
+- pressOn: 'Umur'
+- writeText: '20'
+- pressOn: 'Jenis Kelamin'
+- pressOn: 'Pria'
+- pressOn: 'Tinggi badan (cm)'
+- writeText: '177'
+- pressOn: 'Berat badan (kg)'
+- writeText: '60'
+- pressOn: 'Kegiatan Harian'
+- pressOn: 'Sering di rumah'
+- expectVisible: 'Mulai'
+- pressOn: 'Mulai'
+- expectVisible: 'Nutrisi'
