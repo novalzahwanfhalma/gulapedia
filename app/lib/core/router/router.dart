@@ -20,7 +20,7 @@ final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(
   navigatorKey: _routeNavigatorKey,
-  initialLocation: '/sign-in',
+  initialLocation: '/catatan-harian',
   routes: [
     // Auth routes (tanpa shell)
     GoRoute(

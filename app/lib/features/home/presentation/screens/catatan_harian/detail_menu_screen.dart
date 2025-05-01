@@ -1,96 +1,85 @@
 import 'package:flutter/material.dart';
 import 'package:app/core/theme/colors.dart';
 import 'package:go_router/go_router.dart';
-import 'package:app/features/home/presentation/screens/catatan_harian/nutrisi_screen.dart';
 
 class DetailMenuScreen extends StatelessWidget {
   const DetailMenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double currentValue = 10.6;
-    final double targetValue = 24.5;
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Makan Siang'),
-        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
+        centerTitle: true,
         foregroundColor: Colors.black,
+        title: const Text(''),
+        leading: IconButton(
+          icon: const Icon(Icons.close),
+          onPressed: () {
+            context.pop();
+          },
+        ),
       ),
       body: Column(
         children: [
-          const SizedBox(height: 16),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              SizedBox(
-                width: 100,
-                height: 100,
-                child: CircularProgressIndicator(
-                  value: currentValue / targetValue,
-                  strokeWidth: 10,
-                  backgroundColor: Colors.grey.shade200,
-                  valueColor: AlwaysStoppedAnimation(AppColors.primary),
-                ),
+          // Nama Makanan
+          const Padding(
+            padding: EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Sup, Kentang',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
               ),
-              Image.asset('assets/images/noto_pot-of-food.png', height: 70),
-            ],
+              textAlign: TextAlign.center,
+            ),
           ),
-          const SizedBox(height: 8),
+
+          const SizedBox(height: 16),
+
+          // Kandungan Nutrisi
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(''),
-                Row(
-                  children: [
-                    Text(
-                      'Grade',
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    SizedBox(width: 4),
-                    Icon(Icons.info_outline, size: 16),
-                  ],
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Kandungan Nutrisi',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
+                const SizedBox(height: 12),
+                _buildNutrisiItem('Gula', '1,01 g'),
+                _buildNutrisiItem('Kalori', '150 kcal'),
+                _buildNutrisiItem('Protein', '3 g'),
+                _buildNutrisiItem('Lemak', '5 g'),
               ],
             ),
           ),
+
+          const Spacer(),
+
+          // Tombol Tambahkan di bawah tengah
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(''),
-                Row(
-                  children: [
-                    Text(
-                      'menu',
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    SizedBox(width: 4),
-                    Icon(Icons.info_outline, size: 16),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: ElevatedButton.icon(
+            padding: const EdgeInsets.all(24.0),
+            child: ElevatedButton(
               onPressed: () {
-                context.push('#');
+                // TODO: Tambahkan aksi ketika ditekan
+                context.pop(); // Kembali ke halaman sebelumnya
               },
-              icon: const Icon(Icons.add, color: Colors.white),
-              label: const Text('Tambahkan'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.primary,
-                minimumSize: const Size.fromHeight(48),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(24),
                 ),
+              ),
+              child: const Text(
+                'Tambahkan',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
           ),
@@ -98,25 +87,21 @@ class DetailMenuScreen extends StatelessWidget {
       ),
     );
   }
-}
 
-class _MakananItem extends StatelessWidget {
-  final String nama;
-  final String grade;
-  final double berat;
-
-  const _MakananItem({
-    required this.nama,
-    required this.grade,
-    required this.berat,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(nama),
-      subtitle: Text('Grade : $grade'),
-      trailing: Text('${berat.toStringAsFixed(1)} g'),
+  // Widget bantu untuk Nutrisi
+  Widget _buildNutrisiItem(String title, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(title),
+          Text(
+            value,
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+        ],
+      ),
     );
   }
 }

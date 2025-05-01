@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:app/core/theme/colors.dart';
 import 'package:go_router/go_router.dart';
+import 'package:app/features/home/presentation/screens/catatan_harian/barcode_scanner_page.dart';
+
 
 class NutrisiScreen extends StatefulWidget {
   const NutrisiScreen({super.key});
@@ -54,7 +56,14 @@ class _NutrisiScreenState extends State<NutrisiScreen>
                 prefixIcon: const Icon(Icons.search),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.qr_code_scanner),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BarcodeScannerPage(),
+                      ),
+                    );
+                  },
                 ),
                 filled: true,
                 fillColor: Colors.grey[200],
@@ -140,6 +149,9 @@ class _NutrisiScreenState extends State<NutrisiScreen>
         final item = makananList[index];
         return ListTile(
           contentPadding: const EdgeInsets.symmetric(vertical: 8),
+          onTap: () {
+            context.push('/catatan-harian/detail-menu');
+          },
           title: Text(
             item['nama'],
             style: const TextStyle(fontWeight: FontWeight.w500),
