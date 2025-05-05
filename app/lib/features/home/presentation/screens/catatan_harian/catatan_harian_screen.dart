@@ -80,7 +80,7 @@ class _CatatanHarianScreenState extends State<CatatanHarianScreen> {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.all(18.0), child: CatatanMingguIni()),
+          CatatanMingguIni(),
           Padding(
             padding: EdgeInsets.all(18.0),
             child: Row(

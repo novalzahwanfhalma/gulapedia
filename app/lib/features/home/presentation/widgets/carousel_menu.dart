@@ -11,12 +11,13 @@ class _CarouselMenuState extends State<CarouselMenu> {
   final CarouselController controller = CarouselController(initialItem: 1);
 
   final List<Map<String, String>> foodItems = [
-    {"image": "https://picsum.photos/200", "text": "Item 1"},
-    {"image": "https://picsum.photos/200", "text": "(tanpa kecap)"},
-    {"image": "https://picsum.photos/200", "text": "Pecel sayur"},
-    {"image": "https://picsum.photos/200", "text": "Lele"},
-    {"image": "https://picsum.photos/200", "text": "Bebek carok"},
-  ];
+  {"image": "assets/images/ikan-bakar-bale.png", "text": "Ikan bakar"},
+  {"image": "assets/images/ayam-kecap.png", "text": "Ayam kecap"},
+  {"image": "assets/images/pecal-sayur.jpg", "text": "Pecel sayur"},
+  {"image": "assets/images/lele.jpg", "text": "Lele"},
+  {"image": "assets/images/bebek-carok.jpg", "text": "Bebek carok"},
+];
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,8 @@ class KartuMenu extends StatelessWidget {
         child: Stack(
           children: [
             // Background Image
-            Positioned.fill(child: Image.network(imageUrl, fit: BoxFit.cover)),
+            // Positioned.fill(child: Image.network(imageUrl, fit: BoxFit.cover)),
+            Positioned.fill(child: Image.asset(imageUrl, fit: BoxFit.cover)),
             // Dark Overlay
             Positioned.fill(
               child: Container(color: const Color.fromRGBO(0, 0, 0, 0.3)),

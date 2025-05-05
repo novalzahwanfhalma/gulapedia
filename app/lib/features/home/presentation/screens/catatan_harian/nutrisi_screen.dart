@@ -3,7 +3,6 @@ import 'package:app/core/theme/colors.dart';
 import 'package:go_router/go_router.dart';
 import 'package:app/features/home/presentation/screens/catatan_harian/barcode_scanner_page.dart';
 
-
 class NutrisiScreen extends StatefulWidget {
   const NutrisiScreen({super.key});
 
