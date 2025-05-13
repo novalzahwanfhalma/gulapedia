@@ -20,7 +20,7 @@ final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(
   navigatorKey: _routeNavigatorKey,
-  initialLocation: '/catatan-harian',
+  initialLocation: '/resep/',
   routes: [
     // Auth routes (tanpa shell)
     GoRoute(
@@ -73,12 +73,14 @@ final router = GoRouter(
               builder: (context, state) => const ResepScreen(),
               routes: [
                 GoRoute(
-                  path: 'resep',
-                  builder: (context, state) => const ResepScreen(),
-                ),
-                GoRoute(
-                  path: 'detail-resep',
-                  builder: (context, state) => const DetailResepScreen(),
+                  path: '/detail-resep',
+                  builder: (context, state) {
+                    final extra = state.extra as Map<String, String>;
+                    return DetailResepScreen(
+                      nama: extra['nama'] ?? 'Judul tidak tersedia',
+                      imageAsset: extra['image'] ?? 'assets/images/default.jpg',
+                    );
+                  },
                 ),
               ],
             ),

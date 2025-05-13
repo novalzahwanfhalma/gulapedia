@@ -11,13 +11,12 @@ class _CarouselMenuState extends State<CarouselMenu> {
   final CarouselController controller = CarouselController(initialItem: 1);
 
   final List<Map<String, String>> foodItems = [
-  {"image": "assets/images/ikan-bakar-bale.png", "text": "Ikan bakar"},
-  {"image": "assets/images/ayam-kecap.png", "text": "Ayam kecap"},
-  {"image": "assets/images/pecal-sayur.jpg", "text": "Pecel sayur"},
-  {"image": "assets/images/lele.jpg", "text": "Lele"},
-  {"image": "assets/images/bebek-carok.jpg", "text": "Bebek carok"},
-];
-
+    {"image": "assets/images/ikan-bakar-bale.png", "text": "Ikan bakar"},
+    {"image": "assets/images/ayam-kecap.png", "text": "Ayam kecap"},
+    {"image": "assets/images/pecal-sayur.jpg", "text": "Pecel sayur"},
+    {"image": "assets/images/lele.jpg", "text": "Lele"},
+    {"image": "assets/images/bebek-carok.jpg", "text": "Bebek carok"},
+  ];
 
   @override
   Widget build(BuildContext context) {

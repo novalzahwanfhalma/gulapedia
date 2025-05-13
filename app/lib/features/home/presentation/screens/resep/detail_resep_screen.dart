@@ -3,13 +3,20 @@ import 'package:app/core/theme/colors.dart';
 import 'package:go_router/go_router.dart';
 
 class DetailResepScreen extends StatelessWidget {
-  const DetailResepScreen({super.key});
+  final String nama;
+  final String imageAsset;
+
+  const DetailResepScreen({
+    super.key,
+    required this.nama,
+    required this.imageAsset,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bubur ayam tanpa kecap'),
+        title: Text(nama),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
@@ -21,14 +28,14 @@ class DetailResepScreen extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: Image.asset(
-              'assets/images/bubur_ayam.jpg', // Pastikan file gambar tersedia
+              imageAsset, // ← digunakan di sini
               fit: BoxFit.cover,
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
-            'Bubur ayam tanpa kecap',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          Text(
+            nama, // ← digunakan di sini
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           const Text(
@@ -97,11 +104,8 @@ class _LangkahMemasak extends StatelessWidget {
           ),
           const SizedBox(width: 12),
           Expanded(
-            child: Text(
-              deskripsi,
-              style: const TextStyle(fontSize: 14),
-            ),
-          )
+            child: Text(deskripsi, style: const TextStyle(fontSize: 14)),
+          ),
         ],
       ),
     );
