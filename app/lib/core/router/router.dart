@@ -1,4 +1,5 @@
 import 'package:app/features/home/presentation/screens/home_layout.dart';
+import 'package:app/features/home/presentation/screens/load/loading_screen.dart';
 import 'package:app/features/home/presentation/screens/resep/resep_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
@@ -20,9 +21,13 @@ final _routeNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 
 final router = GoRouter(
   navigatorKey: _routeNavigatorKey,
-  initialLocation: '/resep/',
+  initialLocation: '/loading',
   routes: [
     // Auth routes (tanpa shell)
+    GoRoute(
+      path: '/loading',
+      builder: (context, state) => LoadingScreen(),
+    ),
     GoRoute(
       path: '/sign-in',
       builder: (context, state) => const SignInScreen(),
